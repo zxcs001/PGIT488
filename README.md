@@ -5,7 +5,8 @@ How to run this app?
 
 -----------------------------
 npm install
-node run start
 -----------------------------
+node run start
+
 The URL of this app is: 
 localhost:3000
