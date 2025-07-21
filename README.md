@@ -1,3 +1,12 @@
-# Express-based Demo App
+# Purdue Global IT488 Project
+A  [Express](http://expressjs.com/)-based app for IT488.
 
-A simple [Express](http://expressjs.com/)-based app to test [Node.js](http://nodejs.org/) support.
+How to run this app?
+
+-----------------------------
+npm install
+-----------------------------
+npm run start
+
+The URL of this app is: 
+localhost:3000
