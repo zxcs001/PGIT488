@@ -1,0 +1,212 @@
+/* RESET & UTILS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* VARIABLES */
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --color-dark-gray: #666;
+  --color-light-gray: #eee;
+  --color-gray-bg: #ccc;
+  --color-container-bg: #ddd;
+  --color-btn-bg: #000;
+  --color-btn-text: #fff;
+  --container-max-width: 1000px;
+}
+
+/* BASE LAYOUT */
+body {
+  font-family: Arial, sans-serif;
+  color: var(--color-black);
+}
+.container {
+  width: 90%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+/* HEADER */
+.site-header {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.main-nav {
+  margin-left: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+.main-nav a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 1rem;
+}
+.user-avatar {
+  margin-left: auto;
+  background: var(--color-white);
+  color: var(--color-black);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* SEARCH SECTION */
+.search-section {
+  background: var(--color-container-bg);
+  padding: 2rem 0;
+}
+.search-form {
+  background: var(--color-gray-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+.form-group {
+  flex: 1;
+}
+.flight-number {
+  flex: 2;
+}
+.flight-number input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+}
+.date-range {
+  display: flex;
+  gap: 0.5rem;
+}
+.date-field input {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-white);
+}
+.btn-search {
+  padding: 0.75rem 1.5rem;
+  background: var(--color-btn-bg);
+  color: var(--color-btn-text);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* POPULAR DESTINATIONS */
+.popular-destinations {
+  padding: 2rem 0;
+}
+.popular-destinations h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+.destinations-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.destination-item {
+  background: var(--color-light-gray);
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark-gray);
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+/* HEADER (reuse from your search page) */
+.site-header { background: #000; color: #fff; }
+.header-inner { display: flex; align-items: center; height: 60px; }
+.logo { font-size: 1.5rem; font-weight: bold; }
+.main-nav { margin-left: 2rem; display: flex; gap: 1.5rem; }
+.main-nav a { color: #fff; text-decoration: none; }
+.user-avatar {
+  margin-left: auto;
+  background: #fff; color: #000;
+  border-radius: 50%; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* BREADCRUMB & TITLES */
+.breadcrumb { margin: 1.5rem 0 0.5rem; font-size: 0.9rem; color: #555; }
+.page-title { font-size: 2rem; margin-top: 0.5rem; }
+.section-title { font-size: 1.25rem; margin: 0.5rem 0; }
+hr { border: none; border-top: 1px solid #ccc; margin-bottom: 1.5rem; }
+
+/* ITINERARY LAYOUT */
+.flight-itinerary .header-row {
+  display: flex; align-items: flex-start; gap: 1rem;
+}
+.flight-itinerary .col {
+  flex: 1;
+}
+.city-col h3 {
+  font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: bold;
+}
+.city-col p { color: #333; }
+.icon-col {
+  flex: 0 0 60px;
+  display: flex; align-items: center; justify-content: center;
+}
+.plane-icon { font-size: 2rem; }
+
+/* TIMES ROW */
+.time-row {
+  display: flex; justify-content: space-between; margin: 1.5rem 0;
+}
+.time-item {
+  flex: 1; text-align: center;
+}
+.time-value {
+  font-size: 1.2rem; font-weight: bold; color: #000;
+}
+.time-label {
+  font-size: 0.9rem; color: #666;
+}
+.time-label.sub { margin-top: 0.25rem; }
+
+/* INFO ROWS */
+.info-row {
+  display: flex; gap: 1rem; margin-bottom: 1rem;
+}
+.info-item { flex: 1; }
+.info-label {
+  font-size: 0.95rem; font-weight: bold; color: #555;
+}
+.info-value { margin-top: 0.25rem; color: #333; }
+.status {
+  display: inline-block; padding: 0.25rem 0.75rem;
+  border-radius: 4px; font-size: 0.9rem; color: #fff;
+}
+.status.confirmed { background: #666; }
+
+

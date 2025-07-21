@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Décollage – Sign In / Sign Up</title>
+  <link rel="stylesheet" href="login.css">
+  <style>/* RESET & CONTAINER */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: #f9f9f9;
+  line-height: 1.4;
+}
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.site-header {
+  background: #000;
+  color: #fff;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.main-nav {
+  margin-left: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+.user-avatar {
+  margin-left: auto;
+  background: #fff;
+  color: #000;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* LOGIN / SIGNUP PANEL */
+.login-page {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0;
+}
+.auth-panel {
+  margin: auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.auth-btn, .signup-btn {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 1px solid #000;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+.signup-btn {
+  background: #000;
+  color: #fff;
+}
+.auth-btn:last-of-type {
+  margin-bottom: 1.5rem;
+}</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/"><div class="logo">Décollage</div></a>
+      <nav class="main-nav">
+        <a href="/itinerary">Itinerary</a>
+        <a href="/checkin">Check-in</a>
+        <a href="/flightstatus">Flight Status</a>
+      </nav>
+      <a href="/login" class="user-avatar"><div class="user-avatar">U</div></a>
+    </div>
+  </header>
+  
+  <!-- AUTH PANEL -->
+  <main class="login-page">
+    <div class="container">
+      <div class="auth-panel">
+        <a href="/"><button class="btn auth-btn">Sign In with Google</button></a>
+        <a href="/"><button class="btn auth-btn">Sign In with Email</button></a>
+        <a href="/"><button class="btn auth-btn">Sign In with Facebook</button></a>
+        <a href="/"><button class="btn signup-btn">Sign Up</button></a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

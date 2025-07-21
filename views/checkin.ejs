@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Décollage – Check-in</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+  line-height: 1.4;
+}
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+/* UTILITY */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+/* LAYOUT VARIABLES */
+:root {
+  --bg-light: #eee;
+  --bg-panel: #999;
+  --bg-result: #fafafa;
+  --btn-bg: #000;
+  --btn-color: #fff;
+  --radius: 8px;
+  --gap: 1rem;
+}
+
+/* HEADER */
+.site-header {
+  background: #000;
+  color: #fff;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.main-nav {
+  margin-left: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.main-nav a.active {
+  text-decoration: underline;
+}
+.user-avatar {
+  margin-left: auto;
+  background: #fff;
+  color: #000;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center; justify-content: center;
+  font-weight: bold;
+}
+
+/* MAIN */
+.checkin-page {
+  margin-top: 1rem;
+}
+
+/* FORM SECTION */
+.form-section {
+  padding: 2rem 0;
+}
+.breadcrumb {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+.form-panel {
+  background: var(--bg-panel);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+}
+.checkin-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+.form-row {
+  display: flex;
+  gap: var(--gap);
+}
+.form-group {
+  display: flex;
+}
+.flex-2 { flex: 2; }
+.flex-1 { flex: 1; }
+.full-width { flex: 1; }
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+.center {
+  justify-content: center;
+  display: flex;
+}
+.btn-checkin {
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* RESULT SECTION */
+.result-section {
+  margin: 2rem 0;
+}
+.result-panel {
+  background: var(--bg-result);
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+.result-panel h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.flight-details {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.btn-redirect {
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 1rem;
+}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/"><div class="logo">Décollage</div></a>
+      <nav class="main-nav">
+        <a href="/itinerary">Itinerary</a>
+        <a href="/checkin">Check-in</a>
+        <a href="/flightstatus">Flight Status</a>
+      </nav>
+      <a href="/login" class="user-avatar"><div class="user-avatar">U</div></a>
+    </div>
+  </header>
+
+  <main class="checkin-page">
+    <div class="container">
+
+      <!-- FORM SECTION -->
+      <section class="form-section">
+        <nav class="breadcrumb">Décollage &gt; Check-in</nav>
+        <div class="form-panel">
+          <form class="checkin-form">
+            <div class="form-row">
+              <div class="form-group flex-2">
+                <label for="passport-number" class="visually-hidden">Passport Number</label>
+                <input id="passport-number"
+                       type="text"
+                       placeholder="Passport Number e.g. ED958721">
+              </div>
+              <div class="form-group flex-1">
+                <label for="flight-number" class="visually-hidden">Flight Number</label>
+                <input id="flight-number"
+                       type="text"
+                       placeholder="Flight Number">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group full-width">
+                <label for="reservation-number" class="visually-hidden">Reservation Number</label>
+                <input id="reservation-number"
+                       type="text"
+                       placeholder="Reservation Number e.g. 1RHAZ4">
+              </div>
+            </div>
+            <div class="form-row center">
+              <a href="/seat" class="btn-checkin">Check-In</a>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- RESULT SECTION -->
+      <section class="result-section">
+        <div class="result-panel">
+          <h2>Check-in</h2>
+          <p class="flight-details">
+            Flight details ***** to **** *********
+          </p>
+          <div class="center">
+            <a href="#" class="btn-redirect">
+              Redirect to Airline Official website
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+</body>
+</html>

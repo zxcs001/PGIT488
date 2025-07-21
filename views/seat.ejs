@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Décollage – Seat Selection</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    /* RESET & CONTAINER */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; color: #222; }
+.container { width: 90%; max-width: 800px; margin: 1rem auto; }
+.center { text-align: center; }
+
+/* HEADER */
+.site-header { background: #000; color: #fff; }
+.header-inner { display: flex; align-items: center; height: 60px; }
+.logo { font-size: 1.5rem; font-weight: bold; }
+.main-nav { margin-left: 2rem; display: flex; gap: 1.5rem; }
+.main-nav a { color: #fff; text-decoration: none; }
+.main-nav a.active { text-decoration: underline; }
+.user-avatar {
+  margin-left: auto;
+  background: #fff; color: #000;
+  border-radius: 50%; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* PAGE TITLE */
+.seat-page h1 {
+  text-align: center; margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+/* LEGEND */
+.legend {
+  display: flex; justify-content: center;
+  gap: 2rem; margin-bottom: 1rem;
+}
+.legend div {
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.legend .seat { margin: 0 !important; }
+
+/* SEAT GRID */
+.seat-table {
+  width: 100%; border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+.seat-table th,
+.seat-table td {
+  border: 2px solid #666;
+  width: 40px; height: 40px;
+}
+.seat-table th {
+  text-align: center; font-weight: normal;
+  padding: 0.25rem;
+  color: #000;
+}
+/* Seat states */
+.seat {
+  display: inline-block;
+  width: 100%; height: 100%;
+  cursor: pointer;
+}
+.seat.available { background: #fff; }
+.seat.selected  { background: #ccc; }
+.seat.occupied  {
+  background: #888;
+  cursor: not-allowed;
+}
+
+/* CONTINUE BUTTON */
+.btn-continue {
+  padding: 0.75rem 2rem;
+  background: #000; color: #fff;
+  border: none; border-radius: 6px;
+  font-size: 1.1rem; cursor: pointer;
+}
+td.seat {
+    display: table-cell;
+}
+
+.available-color{
+    border: 1px;
+    border-color: #000 !important;
+    border-style: solid;
+    width: 40px;
+    height: 40px;
+}
+.selected-color{
+    background-color: #ccc;
+    width: 40px;
+    height: 40px;
+}
+.occupied-color{
+    background-color: #888;
+    width: 40px;
+    height: 40px;
+}
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/"><div class="logo">Décollage</div></a>
+      <nav class="main-nav">
+        <a href="/itinerary">Itinerary</a>
+        <a href="/checkin">Check-in</a>
+        <a href="/status" class="active">Flight Status</a>
+      </nav>
+      <div class="user-avatar">U</div>
+    </div>
+  </header>
+
+  <main class="seat-page">
+    <div class="container">
+      <h1>Seat Selection</h1>
+
+      <!-- LEGEND -->
+      <div class="legend">
+        <div class="available-color"></div><div><span class="seat available"></span> Available</div>
+        <div class="selected-color"></div><div><span class="seat selected"></span> Selected</div>
+        <div class="occupied-color"></div><div><span class="seat occupied"></span> Occupied</div>
+      </div>
+
+      <!-- SEAT GRID -->
+      <table class="seat-table">
+        <thead>
+          <tr>
+            <th></th>
+            <% cols = ['A','B','C','D','E','F']; %>
+            <% cols.forEach(col => { %>
+              <th><%= col %></th>
+            <% }); %>
+          </tr>
+        </thead>
+        <tbody>
+          <% rows = ['1','2','3','4','5','6','7','8','9','A','C']; %>
+          <% rows.forEach(row => { %>
+            <tr>
+              <th><%= row %></th>
+              <% cols.forEach(col => {
+                   // Determine initial class
+                   let cls = ['seat'];
+                   if (row==='3' && col==='B') cls.push('selected');
+                   else if ((row==='5' || row==='6') && (col==='E'||col==='F')) cls.push('occupied');
+                   else cls.push('available');
+              %>
+                <td class="<%= cls.join(' ') %>"
+                    data-row="<%= row %>"
+                    data-col="<%= col %>">
+                </td>
+              <% }); %>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+
+      <!-- CONTINUE BUTTON -->
+      <div class="center">
+        <button class="btn-continue">Continue</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.querySelectorAll('.seat').forEach(seat => {
+    seat.addEventListener('click', () => {
+        if (seat.classList.contains('occupied')) return;
+        seat.classList.toggle('selected');
+        seat.classList.toggle('available');
+        });
+    });
+  </script>
+</body>
+</html>

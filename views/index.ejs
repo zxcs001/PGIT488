@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Décollage Flight Search</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/"><div class="logo">Décollage</div></a>
+      <nav class="main-nav">
+        <a href="/itinerary">Itinerary</a>
+        <a href="/checkin">Check-in</a>
+        <a href="/flightstatus">Flight Status</a>
+      </nav>
+      <a href="/login" class="user-avatar"><div class="user-avatar">U</div></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <div class="container">
+        <form class="search-form">
+          <div class="form-group flight-number">
+            <label for="flight-number-input" class="visually-hidden">Flight Number</label>
+            <input id="flight-number-input"
+                   type="text"
+                   placeholder="Flight Number e.g. QF103, UA867">
+          </div>
+          <div class="form-group date-range">
+            <div class="date-field">
+              <label for="date-from" class="visually-hidden">From</label>
+              <input id="date-from" type="date" placeholder="From">
+            </div>
+            <div class="date-field">
+              <label for="date-to" class="visually-hidden">To</label>
+              <input id="date-to" type="date" placeholder="To">
+            </div>
+          </div>
+          <a href="/itinerary"><div class="btn-search">Search</did></a>
+        </form>
+      </div>
+    </section>
+
+    <section class="popular-destinations">
+      <div class="container">
+        <h2>Popular Destinations:</h2>
+        <div class="destinations-grid">
+          <div class="destination-item">Image for popular destinations</div>
+          <div class="destination-item">Image for popular destinations</div>
+          <div class="destination-item">Image for popular destinations</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

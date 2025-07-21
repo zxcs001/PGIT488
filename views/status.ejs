@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Décollage – Flight Status</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <style>
+    /* RESET */ 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; color: #222; line-height: 1.5; }
+.container { width: 90%; max-width: 1000px; margin: 0 auto; }
+
+/* Header (reuse styles from prior pages) */
+.site-header { background: #000; color: #fff; }
+.header-inner { display: flex; align-items: center; height: 60px; }
+.main-nav { margin-left: 2rem; display: flex; gap: 1.5rem; }
+.main-nav a { color: #fff; text-decoration: none; }
+.logo { font-size: 1.5rem; font-weight: bold; }
+.user-avatar {
+  margin-left: auto;
+  background: #fff; color: #000;
+  border-radius: 50%; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  margin: 1rem 0;
+  font-size: 0.9rem; color: #555;
+}
+
+/* Flight Status Panel */
+.status-panel {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background: #fafafa;
+}
+.timeline-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.airport-block {
+  flex: 1;
+  text-align: center;
+}
+.airport-logo {
+  width: 40px; height: 40px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 auto 0.5rem;
+}
+.airport-name {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.airport-time {
+  font-size: 0.85rem;
+  color: #666;
+}
+.timeline-line {
+  display: flex;
+  align-items: center;
+  flex: 2;
+  gap: 0.25rem;
+}
+.line-start, .line-middle, .line-end {
+  flex: 1;
+  height: 2px;
+  background: #888;
+}
+.line-start { margin-right: 0.5rem; }
+.line-end { margin-left: 0.5rem; }
+.plane-icon {
+  font-size: 1.5rem;
+  color: #000;
+}
+
+/* Status Text */
+.status-text {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Info Row */
+.info-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+.info-item {
+  text-align: center;
+}
+.info-label {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+.info-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Baggage Panel */
+.baggage-panel {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  background: #fff;
+  margin-bottom: 2rem;
+}
+.baggage-panel h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  color: #222;
+}
+.baggage-panel ul {
+  list-style: disc inside;
+  color: #333;
+}
+.baggage-panel li {
+  margin-bottom: 0.5rem;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Header (same as before) -->
+  <header class="site-header">
+    <div class="container header-inner">
+     <a href="/"><div class="logo">Décollage</div></a>
+      <nav class="main-nav">
+        <a href="/itinerary">Itinerary</a>
+        <a href="/checkin">Check-in</a>
+        <a href="/flight-status">Flight Status</a>
+      </nav>
+      <a href="/login" class="user-avatar"><div class="user-avatar">U</div></a>
+    </div>
+  </header>
+
+  <main class="status-page">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">Décollage &gt; Flight Status</nav>
+
+      <!-- Flight Status Panel -->
+      <section class="status-panel">
+        <div class="timeline-row">
+          <div class="airport-block">
+            <div class="airport-logo"></div>
+            <div class="airport-name">Airport One</div>
+            <div class="airport-time">7:50 AM</div>
+          </div>
+          <div class="timeline-line">
+            <span class="line-start"></span>
+            <span class="line-middle"></span>
+            <span class="plane-icon">✈</span>
+            <span class="line-middle"></span>
+            <span class="line-end"></span>
+          </div>
+          <div class="airport-block">
+            <div class="airport-logo"></div>
+            <div class="airport-name">Airport Two</div>
+            <div class="airport-time">1:50 PM</div>
+          </div>
+        </div>
+        <div class="status-text">ON TIME</div>
+        <div class="info-row">
+          <div class="info-item">
+            <div class="info-label">Arrival Gate</div>
+            <div class="info-value">05</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Boarding Gate</div>
+            <div class="info-value">A12</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Check-In Counter</div>
+            <div class="info-value">38</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Baggage Panel -->
+      <section class="baggage-panel">
+        <h2>Baggage</h2>
+        <ul>
+          <li>Backpack or handbag included</li>
+          <li>Must fit under the front seat.</li>
+          <li>Carry-on baggage included</li>
+          <li>Must fit inside the airplane compartment.</li>
+          <li>Checked baggage not included</li>
+          <li>You can add bags for an additional charge when arriving at the airport.</li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Décollage – Flight Itinerary</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/"><div class="logo">Décollage</div></a>
+      <nav class="main-nav">
+        <a href="#">Itinerary</a>
+        <a href="/checkin">Check-in</a>
+        <a href="/flightstatus">Flight Status</a>
+      </nav>
+      <a href="/login" class="user-avatar"><div class="user-avatar">U</div></a>
+    </div>
+  </header>
+
+  <main class="itinerary-page">
+    <div class="container">
+      <nav class="breadcrumb">Décollage &gt; Flight Itinerary</nav>
+      <h1 class="page-title">Flight</h1>
+      <h2 class="section-title">Itinerary</h2>
+      <hr>
+
+      <section class="flight-itinerary">
+
+        <!-- Top row: City names + details -->
+        <div class="header-row">
+          <div class="col city-col">
+            <h3>City 1 (airport 1)</h3>
+            <p><strong>Passengers:</strong> Pablo/Escobár<br>
+               <strong>Reservation Code:</strong> 1RHAZ4</p>
+          </div>
+          <div class="col icon-col">
+            <div class="plane-icon">&#9992;</div>
+          </div>
+          <div class="col city-col right">
+            <h3>City 2 (airport 2)</h3>
+          </div>
+        </div>
+
+        <!-- Times row -->
+        <div class="time-row">
+          <div class="time-item">
+            <div class="time-label">Airline</div>
+            <div class="time-value">UA588</div>
+          </div>
+          <div class="time-item">
+            <div class="time-value">22:25</div>
+            <div class="time-label sub">Departure</div>
+          </div>
+          <div class="time-item">
+            <div class="time-value">24h 25m</div>
+            <div class="time-label sub">Duration</div>
+          </div>
+          <div class="time-item">
+            <div class="time-value">23:50</div>
+            <div class="time-label sub">Arrival</div>
+          </div>
+        </div>
+
+        <!-- Confirmation row -->
+        <div class="info-row">
+          <div class="info-item">
+            <div class="info-label">Class of Service:</div>
+            <div class="info-value">Economy</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Confirmation Code:</div>
+            <div class="info-value">MG245C</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Confirmation Status:</div>
+            <div class="status confirmed">Confirmed</div>
+          </div>
+        </div>
+
+        <!-- Airport & flight info row -->
+        <div class="info-row">
+          <div class="info-item">
+            <div class="info-label">Airport Info:</div>
+            <div class="info-value">
+              Ministro Pistarini Airport<br>
+              Buenos Aires<br>
+              Argentina
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Flight Info:</div>
+            <div class="info-value">
+              Airbus A320-200<br>
+              Breakfast, Meal
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+</body>
+</html>
